@@ -1,2 +1,1 @@
-
-#Game fo CI\CD
+#Game for CI\CD

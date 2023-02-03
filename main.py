@@ -1,6 +1,18 @@
 import pygame
+from src.drawer import drawer
 
-pygame.init()
-win_width = 800
-win_height = 800
-win = pygame.display.set_mode((win_width, win_height))
+class Game:
+    def __init__(self):
+        pygame.init()
+        self.win_width = 800
+        self.win_height = 800
+        self.win = pygame.display.set_mode((self.win_width, self.win_height))
+    def run(self):
+        while True:
+            pass
+
+
+if __name__ == '__main__':
+    game = Game()
+    drawer.Drawer()
+    # game.run()

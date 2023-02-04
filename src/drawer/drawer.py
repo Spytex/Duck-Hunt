@@ -5,7 +5,8 @@ from src.drawer import button
 class Drawer():
     def __init__(self):
         self.menu_state = "main"
-        self.game_paused = False
+        self.run = True
+        self.game_paused = True
         self.TEXT_COL = (255, 255, 255)
         self.SCREEN_WIDTH = 800
         self.SCREEN_HEIGHT = 800
@@ -43,7 +44,7 @@ class Drawer():
                 if self.options_button.draw(self.screen):
                     self.menu_state = "options"
                 if self.quit_button.draw(self.screen):
-                    pygame.quit()
+                    self.run = False
             # check if the options menu is open
             if self.menu_state == "options":
                 # draw the different options buttons
@@ -63,6 +64,8 @@ class Drawer():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
                     self.game_paused = True
+                if event.key == pygame.K_ESCAPE:
+                    self.game_paused = False
             if event.type == pygame.QUIT:
                 pygame.quit()
 

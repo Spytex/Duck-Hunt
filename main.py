@@ -6,12 +6,12 @@ class Game:
         pygame.init()
         self.game_paused = False
         self.menu_state = "main"
-    def run(self):
+    def cycle(self):
         draw = drawer.Drawer()
-        while True:
+        while draw.run:
             draw.DrawMenu()
 
 
 if __name__ == '__main__':
     game = Game()
-    game.run()
+    game.cycle()

@@ -1,5 +1,5 @@
 import pygame
 
 class Unit():
-    def __init__(self, game):
+    def __init__(self):
         pass

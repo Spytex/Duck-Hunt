@@ -5,13 +5,16 @@ from src.drawer import button
 class Drawer():
     def __init__(self):
         self.menu_state = "main"
-        self.game_paused = False
+        self.run = True
+        self.game_paused = True
+        self.level = 0
+        self.bgs = []
+        self.banners = []
         self.TEXT_COL = (255, 255, 255)
         self.SCREEN_WIDTH = 800
         self.SCREEN_HEIGHT = 800
         self.font = pygame.font.SysFont("arialblack", 40)
         self.screen = pygame.display.set_mode((self.SCREEN_WIDTH, self.SCREEN_HEIGHT))
-        pygame.display.set_caption("Main Menu")
         self.resume_img = pygame.image.load("assets/menu/button_resume.png").convert_alpha()
         self.options_img = pygame.image.load("assets/menu/button_options.png").convert_alpha()
         self.quit_img = pygame.image.load("assets/menu/button_quit.png").convert_alpha()
@@ -32,6 +35,7 @@ class Drawer():
         self.screen.blit(self.img, (x, y))
 
     def DrawMenu(self):
+        pygame.display.set_caption("Main Menu")
         self.screen.fill((52, 78, 91))
         # check if game is paused
         if self.game_paused == True:
@@ -39,11 +43,11 @@ class Drawer():
             if self.menu_state == "main":
                 # draw pause screen buttons
                 if self.resume_button.draw(self.screen):
-                    self.game_paused = False
+                    self.menu_state = "game"
                 if self.options_button.draw(self.screen):
                     self.menu_state = "options"
                 if self.quit_button.draw(self.screen):
-                    pygame.quit()
+                    self.run = False
             # check if the options menu is open
             if self.menu_state == "options":
                 # draw the different options buttons
@@ -55,6 +59,8 @@ class Drawer():
                     print("Change Key Bindings")
                 if self.back_button.draw(self.screen):
                     self.menu_state = "main"
+            if self.menu_state == "game":
+                self.DrawLevel()
         else:
             self.DrawText("Press SPACE to pause", self.font, self.TEXT_COL, 160, 250)
 
@@ -63,6 +69,8 @@ class Drawer():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
                     self.game_paused = True
+                if event.key == pygame.K_ESCAPE:
+                    self.game_paused = False
             if event.type == pygame.QUIT:
                 pygame.quit()
 
@@ -75,8 +83,12 @@ class Drawer():
         pass
 
     def DrawLevel(self):
-        pass
-
+        pygame.display.set_caption("Level " + str(self.level+1))
+        for i in range(1, 2):
+            self.bgs.append(pygame.image.load(f'assets/bg/background{i}.png'))
+        self.screen.fill('black')
+        self.screen.blit(self.bgs[self.level-1], (0, 0))
+        pygame.display.update()
     def DrawUnit(self):
         pass
 

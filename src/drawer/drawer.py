@@ -1,10 +1,15 @@
 import pygame
 from src.drawer import button
+from src.loader import loader
 
 
 class Drawer():
     def __init__(self):
         self.menu_state = "main"
+        self.load = loader.Loader()
+        self.path = "src/settings"
+        self.fileName = "settings"
+        self.data = {}
         self.run = True
         self.game_paused = True
         self.level = 0
@@ -13,8 +18,8 @@ class Drawer():
         self.TEXT_COL = (255, 255, 255)
         self.SCREEN_WIDTH = 800
         self.SCREEN_HEIGHT = 800
-        self.font = pygame.font.SysFont("arialblack", 40)
         self.screen = pygame.display.set_mode((self.SCREEN_WIDTH, self.SCREEN_HEIGHT))
+        self.font = pygame.font.SysFont("Comic Sans MS", 50)
         self.resume_img = pygame.image.load("assets/menu/button_resume.png").convert_alpha()
         self.options_img = pygame.image.load("assets/menu/button_options.png").convert_alpha()
         self.quit_img = pygame.image.load("assets/menu/button_quit.png").convert_alpha()
@@ -25,17 +30,19 @@ class Drawer():
         self.resume_button = button.Button(304, 125, self.resume_img, 1)
         self.options_button = button.Button(297, 250, self.options_img, 1)
         self.quit_button = button.Button(336, 375, self.quit_img, 1)
-        self.video_button = button.Button(226, 75, self.video_img, 1)
-        self.audio_button = button.Button(225, 200, self.audio_img, 1)
-        self.keys_button = button.Button(246, 325, self.keys_img, 1)
-        self.back_button = button.Button(332, 450, self.back_img, 1)
+        self.video_button = button.Button(226, 125, self.video_img, 1)
+        self.audio_button = button.Button(225, 250, self.audio_img, 1)
+        self.keys_button = button.Button(246, 375, self.keys_img, 1)
+        self.back_button = button.Button(332, 500, self.back_img, 1)
+        self.fps240_button = button.Button(355, 200, self.font.render('240', True, self.TEXT_COL), 1)
+        self.fps144_button = button.Button(355, 300, self.font.render('144', True, self.TEXT_COL), 1)
+        self.fps60_button = button.Button(365, 400, self.font.render('60', True, self.TEXT_COL), 1)
 
     def DrawText(self, text, font, text_col, x, y):
         self.img = font.render(text, True, text_col)
         self.screen.blit(self.img, (x, y))
 
     def DrawMenu(self):
-        pygame.display.set_caption("Main Menu")
         self.screen.fill((52, 78, 91))
         # check if game is paused
         if self.game_paused == True:
@@ -43,7 +50,7 @@ class Drawer():
             if self.menu_state == "main":
                 # draw pause screen buttons
                 if self.resume_button.draw(self.screen):
-                    self.menu_state = "game"
+                    self.game_paused = False
                 if self.options_button.draw(self.screen):
                     self.menu_state = "options"
                 if self.quit_button.draw(self.screen):
@@ -53,47 +60,47 @@ class Drawer():
                 # draw the different options buttons
                 if self.video_button.draw(self.screen):
                     print("Video Settings")
+                    self.menu_state = "video settings"
                 if self.audio_button.draw(self.screen):
                     print("Audio Settings")
                 if self.keys_button.draw(self.screen):
                     print("Change Key Bindings")
                 if self.back_button.draw(self.screen):
                     self.menu_state = "main"
-            if self.menu_state == "game":
-                self.DrawLevel()
+            if self.menu_state == "video settings":
+                self.DrawText("Select FPS", self.font, self.TEXT_COL, 270, 100)
+                if self.fps240_button.draw(self.screen):
+                    self.load.updateJSONFile(self.path, self.fileName, "fps", 240)
+                if self.fps144_button.draw(self.screen):
+                    self.load.updateJSONFile(self.path, self.fileName, "fps", 144)
+                if self.fps60_button.draw(self.screen):
+                    self.load.updateJSONFile(self.path, self.fileName, "fps", 60)
+                if self.back_button.draw(self.screen):
+                    self.menu_state = "options"
         else:
-            self.DrawText("Press SPACE to pause", self.font, self.TEXT_COL, 160, 250)
-
+            self.DrawLevel()
+            # self.DrawText("Press SPACE to pause", self.font, self.TEXT_COL, 145, 350)
         # event handler
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
-                    self.game_paused = True
+                    self.game_paused = not self.game_paused
                 if event.key == pygame.K_ESCAPE:
-                    self.game_paused = False
+                    self.game_paused = not self.game_paused
             if event.type == pygame.QUIT:
                 pygame.quit()
 
-        pygame.display.update()
-
-
-
-
-    def DrawButtons(self):
-        pass
+        pygame.display.update()  # flip()
 
     def DrawLevel(self):
-        pygame.display.set_caption("Level " + str(self.level+1))
-        for i in range(1, 2):
-            self.bgs.append(pygame.image.load(f'assets/bg/background{i}.png'))
+        # pygame.display.set_caption("Level " + str(self.level+1))
+        for i in range(2):
+            self.bgs.append(pygame.image.load(f'assets/bg/background{i+1}.png'))
         self.screen.fill('black')
-        self.screen.blit(self.bgs[self.level-1], (0, 0))
-        pygame.display.update()
+        self.screen.blit(self.bgs[self.level % 2], (0, 0))
+
     def DrawUnit(self):
         pass
 
     def DrawResult(self):
-        pass
-
-    def DrawPause(self):
         pass

@@ -2,8 +2,9 @@ import pygame
 from src.drawer import button
 from src.loader import loader
 from src.drawer import slider
-from src.Resource import resources
-
+from src.resources import resources
+from src.objects.units import pig
+import random
 
 class Drawer():
     def __init__(self):
@@ -12,11 +13,21 @@ class Drawer():
 
         self.resources = resources.Resource()
 
+        self.targets = []
+
+        for i in range(10):
+            a = 0
+            self.targets.append(pig.Pig(self.generateCoords(), 50, 50))
+            self.resources.yArrayPos.append(a)
+            a += 50
+        
+
     def DrawText(self, text, font, text_col, x, y):
         self.img = font.render(text, True, text_col)
         self.resources.screen.blit(self.img, (x, y))
 
     def DrawMenu(self):
+
         self.resources.screen.fill((52, 78, 91))
         # check if game is paused   
         if self.resources.game_paused == True:
@@ -75,6 +86,9 @@ class Drawer():
         else:
             self.DrawLevel()
             # self.DrawText("Press SPACE to pause", self.font, self.TEXT_COL, 145, 350)
+
+
+        
         # event handler
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
@@ -82,8 +96,13 @@ class Drawer():
                     self.resources.game_paused = not self.resources.game_paused
                 if event.key == pygame.K_ESCAPE:
                     self.resources.game_paused = not self.resources.game_paused
+            if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+                self.resources.shot = True
+            if event.type == pygame.MOUSEBUTTONUP and event.button == 1:
+                self.resources.shot = False
             if event.type == pygame.QUIT:
                 pygame.quit()
+      
 
         pygame.display.update()  # flip()
 
@@ -94,9 +113,41 @@ class Drawer():
         self.resources.screen.fill('black')
         self.resources.screen.blit(self.resources.bgs[self.resources.level % 2], (0, 0))
 
+        if self.checkVisibility() != False :
+            self.targets = []
+            for i in range(10):
+                self.targets.append(pig.Pig(self.generateCoords(), 50, 50))
+            self.resources.level +=1
+        
 
-    def DrawUnit(self):
-        pass
 
-    def DrawResult(self):
-        pass
+        for i in self.targets:
+            if(i.visible):
+                self.resources.screen.blit(pygame.transform.scale(self.resources.enemyImage, (50,50)), (i.x,i.y))
+
+        self.moveTargets()
+
+    
+    def moveTargets(self):
+        for i in self.targets:
+            i.move(self.resources.SCREEN_WIDTH, self.resources.level)
+            i.hit(self.resources.shot)
+
+        for i in self.targets:
+            if(i.visible):
+                self.resources.screen.blit(pygame.transform.scale(self.resources.enemyImage, (50,50)) , (i.x,i.y))
+
+
+        pygame.display.update()
+
+    def generateCoords(self):
+        return (random.randint(-250 , -50), random.randint(10, self.resources.SCREEN_HEIGHT - 100))
+
+
+    def checkVisibility(self):
+        for i in self.targets:
+            if i.visible == True:
+                return False
+            
+        return True
+        

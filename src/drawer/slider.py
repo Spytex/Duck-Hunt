@@ -6,11 +6,13 @@ class Slider():
         self.slider_rect = pygame.Rect(x, y, width, height)
         self.slider_special = pygame.Rect(x-53, y-3, width+106, height+6)
         self.knob_rect = pygame.Rect(self.slider_rect.x + self.slider_rect.width * 0.5, self.slider_rect.y, 100, 100)
-        data = loader.Loader()
-        self.volume = data.volume
-        knob_image = pygame.image.load("assets/menu/pig.png").convert_alpha()
+        self.load = loader.Loader()
+        self.volume = self.load.volume #
+        knob_image = pygame.image.load("assets/menu/pig.png").convert_alpha() #
         self.knob_image = pygame.transform.scale(knob_image, (100, 100))
-        self.font = pygame.font.SysFont("Comic Sans MS", 50)
+        self.font = pygame.font.SysFont("Comic Sans MS", 50) #
+        self.path = "src/settings"  # pathSettings
+        self.fileName = "settings"  # fileSettings
         self.dragging = False
 
     def draw(self, screen):
@@ -22,6 +24,9 @@ class Slider():
                 if event.type == pygame.MOUSEBUTTONUP:
                     if event.button == 1:
                         self.dragging = False
+                        if self.volume != self.load.volume:
+                            self.load.updateJSONFile(self.path, self.fileName, "volume", self.volume)
+                            self.load.loadMusic()
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if event.button == 1:
                         # Check if the mouse is over the knob
@@ -39,6 +44,6 @@ class Slider():
         screen.blit(self.knob_image, self.knob_rect)
         volume_text = self.font.render("Volume: {:.2f}".format(self.volume), True, (255, 255, 255))
         text_rect = volume_text.get_rect()
-        text_rect.center = (400, 350)
+        text_rect.center = (400, 450)
         screen.blit(volume_text, text_rect)
         return action

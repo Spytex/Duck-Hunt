@@ -9,9 +9,7 @@ class Game:
         pygame.init()
         self.draw = drawer.Drawer()
         data = loader.Loader()
-        pygame.mixer.music.load("assets/sounds/menuSound.mp3")
-        pygame.mixer.music.set_volume(0.1)
-        pygame.mixer.music.play(-1)
+        data.loadMusic()
         self.timer = pygame.time.Clock()
         self.fps = data.fps
 

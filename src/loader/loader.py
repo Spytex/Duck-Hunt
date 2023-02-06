@@ -6,6 +6,8 @@ class Loader():
         pygame.init()
         self.settings = self.readJSONFile("src/settings", "settings")
         self.fps = self.settings['fps']
+        self.sound = self.settings['sound']
+        self.volume = self.settings['volume']
 
     def readJSONFile(self, path, fileName):
         filePathNameWExt = './' + path + '/' + fileName + '.json'
@@ -24,3 +26,12 @@ class Loader():
         oldData[dataLocation] = data
         with open(filePathNameWExt, 'w') as fp:
             json.dump(oldData, fp)
+
+    def loadMusic(self):
+        pygame.mixer.music.stop()
+        self.settings = self.readJSONFile("src/settings", "settings")
+        self.sound = self.settings['sound']
+        self.volume = self.settings['volume']
+        pygame.mixer.music.load("assets/sounds/" + self.sound)
+        pygame.mixer.music.set_volume(self.volume)
+        pygame.mixer.music.play(-1)

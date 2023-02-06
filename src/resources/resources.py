@@ -6,56 +6,6 @@ from src.drawer import slider
 
 class Resource():
 
-    
-    path = "src/settings"
-    fileName = "settings"
-    imageMenuPath = "assets/menu/"
-    run = True
-
-    # consts
-    FPS = 60
-    WIDTH = 900
-    HEIGHT = 800
-
-    # main timer
-    timer = None
-
-    # booleans
-
-    # settungs
-    fullScreen = False
-    soundEnable = False
-
-    new_coords = False
-    shot = False
-    menu = True
-    game_over = False
-    pause = False
-
-    level = 0
-    points = 0
-    total_shots = 0
-    time_passed = 0
-
-    targets = {1: [10, 5, 3],
-               2: [12, 8, 5],
-               3: [15, 12, 8, 3]}
-
-    # images
-    target_images = [[], [], []]
-    backGroundImage = []
-    bannersImage = []
-    gunsImage = []
-    menu_img = None
-    game_over_img = None
-    pause_img = None
-
-    # fonts
-    # font = pygame.font.Font(None,32)
-    # big_font = pygame.font.Font(None,60)
-
-    # sounds
-
     def __init__(self) -> None:
         
         self.load = loader.Loader()
@@ -70,10 +20,13 @@ class Resource():
 
         self.data = {}
         # booleans
+        
         self.run = True
         self.game_paused = True
+        self.shot = False
+        
 
-        self.level = 0
+        self.level = 1
         self.bgs = []
 
         self.TEXT_COL = (255, 255, 255)
@@ -85,7 +38,6 @@ class Resource():
         self.screen = pygame.display.set_mode((self.SCREEN_WIDTH, self.SCREEN_HEIGHT))
 
 
-        
         self.sound = self.load.sound
         # ----------------------------
 
@@ -116,6 +68,9 @@ class Resource():
         self.sound1_button = button.Button(120, 100, self.font.render('Sound 1', True, self.TEXT_COL), 1)
         self.sound2_button = button.Button(320, 100, self.font.render('Sound 2', True, self.TEXT_COL), 1)
         self.sound3_button = button.Button(520, 100, self.font.render('Sound 3', True, self.TEXT_COL), 1)
+
+
+        self.yArrayPos = []
 
 
         self.slider = slider.Slider(200, 200, 400, 100)

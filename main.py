@@ -1,6 +1,5 @@
 import pygame
 from src.drawer import drawer
-from src.loader import loader
 from src.objects.units.pig import Pig
 
 class Game:
@@ -8,13 +7,12 @@ class Game:
         pygame.display.set_caption("Duck Hunt")
         pygame.init()
         self.draw = drawer.Drawer()
-        data = loader.Loader()
-        data.loadMusic()
+        self.draw.resources.load.loadMusic()
+        self.fps = self.draw.resources.FPS
         self.timer = pygame.time.Clock()
-        self.fps = data.fps
 
     def cycle(self):
-        while self.draw.run:
+        while self.draw.resources.run:
             self.timer.tick(self.fps)
             self.draw.DrawMenu()
 

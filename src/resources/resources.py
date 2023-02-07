@@ -2,7 +2,7 @@ import pygame
 from src.loader import loader
 from src.drawer import button
 from src.drawer import slider
-
+import sys
 
 class Resource():
 
@@ -24,8 +24,10 @@ class Resource():
         self.run = True
         self.game_paused = True
         self.shot = False
+        self.clicked = False
 
-        self.level = 1
+
+        self.level = 10
         self.score = 0
         self.bgs = []
 

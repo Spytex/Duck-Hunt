@@ -1,4 +1,5 @@
 import pygame
+from src.loader import loader
 
 
 class Button():
@@ -9,6 +10,7 @@ class Button():
         self.rect = self.image.get_rect()
         self.rect.topleft = (x, y)
         self.clicked = False
+        self.loader = loader.Loader()
 
     def draw(self, surface):
         action = False
@@ -21,6 +23,8 @@ class Button():
                 if event.type == pygame.MOUSEBUTTONDOWN and self.clicked == False:
                     self.clicked = True
                     action = True
+                    yesSound = self.loader.loadSound('yes')
+                    yesSound.play()
 
         if pygame.mouse.get_pressed()[0] == 0:
             self.clicked = False

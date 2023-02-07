@@ -11,11 +11,12 @@ class Pig():
         self.speed = 5
         self.rect = pygame.Rect(coords[0], coords[1], width, height)
 
-    def move(self, width, level):
+    def move(self, width, level, HP):
         self.rect = pygame.Rect(self.x ,self.y , self.size[0],  self.size[1])
         if (self.x < width):
             self.x += self.speed * (level * 0.3 if level else 1)
         else:
+            HP()
             self.x = -50
         
         

@@ -13,8 +13,6 @@ class Drawer():
         self.resources = resources.Resource()
 
         self.targets = []
-
-        
         if self.resources.level != 1:
             self.resources.countPigs += self.resources.level
             self.coords = self.getCoords()
@@ -103,6 +101,12 @@ class Drawer():
         pygame.display.update()  # flip()
 
     def DrawLevel(self):
+
+        if(self.resources.HP <= 0):
+            self.resources.game_paused = True
+            self.resources.menu_state = "main"
+            return
+
         # pygame.display.set_caption("Level " + str(self.level+1))
         for i in range(2):
             self.resources.bgs.append(pygame.image.load(f'assets/bg/background{i+1}.png'))
@@ -123,7 +127,7 @@ class Drawer():
 
     def moveTargets(self):
         for i in self.targets:
-            i.move(self.resources.SCREEN_WIDTH, self.resources.level)
+            i.move(self.resources.SCREEN_WIDTH, self.resources.level, self.minusHP)
             i.hit(self.resources.shot, self.plusScore, self.resources.clicked)
 
         for i in self.targets:
@@ -144,6 +148,8 @@ class Drawer():
 
     def drawBanner(self):
         self.resources.screen.blit(self.resources.levelSurface, (25,740))
+        self.resources.screen.blit(pygame.transform.scale(self.resources.font.render(f"HP: {self.resources.HP}", True, (255,255,255)), (90,40)), (350,5) )
+
         self.resources.levelSurface.fill((0,0,0,1))
         self.resources.levelSurface.blit(pygame.transform.scale(self.resources.font.render(f"Level: {self.resources.level}", True, (255,255,255)), (110,50)), (310,0) )
         self.resources.levelSurface.blit(pygame.transform.scale(self.resources.font.render(f"Score: {self.resources.score}", True, (255,255,255)), (110,50)), (620,0) )
@@ -153,4 +159,7 @@ class Drawer():
 
     def plusScore(self):
         self.resources.score += 10
+
+    def minusHP(self):
+        self.resources.HP -= 10
         

@@ -13,6 +13,9 @@ class Resource():
 
         self.FPS = self.load.fps
 
+
+        self.HP = 100
+
         # strings
         self.menu_state = "main"
         self.path = "src/settings"
@@ -27,7 +30,7 @@ class Resource():
         self.shot = False
         self.clicked = False
 
-
+        
         self.level = self.arg.level if self.arg.level != None else 1
         self.score = 0
         self.bgs = []

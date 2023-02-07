@@ -28,7 +28,7 @@ class Resource():
         self.clicked = False
 
 
-        self.level = 10
+        self.level = self.arg.level if self.arg.level != None else 1
         self.score = 0
         self.bgs = []
 

@@ -20,16 +20,17 @@ class Pig():
         
         
 
-    def hit(self, shot, score):
+    def hit(self, shot, score, clicked):
         mouse_pos = pygame.mouse.get_pos()
 
         if (self.rect.collidepoint(mouse_pos)):
             if shot:
+                shot = False
                 if self.health > 0:
                     self.health -= 1
                     if self.health == 0:
                         score()
-                        self.visible = False
-                        
+                        self.visible = False     
                 else:
                     self.visible = False
+            

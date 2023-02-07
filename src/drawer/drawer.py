@@ -13,11 +13,17 @@ class Drawer():
         self.resources = resources.Resource()
 
         self.targets = []
-        pos = 0
 
-        self.coords = self.getCoords()
-        for i in range(self.resources.countPigs):
-            self.targets.append(pig.Pig(self.coords[i], 50, 50))
+        
+        if self.resources.level != 1:
+            self.resources.countPigs += self.resources.level
+            self.coords = self.getCoords()
+            for i in range(self.resources.countPigs):
+                self.targets.append(pig.Pig(self.coords[i], 50, 50))
+        else:
+            self.coords = self.getCoords()
+            for i in range(self.resources.countPigs):
+                self.targets.append(pig.Pig(self.coords[i], 50, 50))
 
     def DrawText(self, text, font, text_col, x, y):
         self.img = font.render(text, True, text_col)
@@ -90,6 +96,7 @@ class Drawer():
                 self.resources.shot = True
             if event.type == pygame.MOUSEBUTTONUP and event.button == 1:
                 self.resources.shot = False
+
             if event.type == pygame.QUIT:
                 pygame.quit()
 
@@ -108,7 +115,7 @@ class Drawer():
             for i in range(self.resources.countPigs):
                 self.targets.append(pig.Pig(self.coords[i], 50, 50))
             self.resources.level += 1
-            self.resources.countPigs += 2
+            self.resources.countPigs += 1 
 
         
 
@@ -117,7 +124,7 @@ class Drawer():
     def moveTargets(self):
         for i in self.targets:
             i.move(self.resources.SCREEN_WIDTH, self.resources.level)
-            i.hit(self.resources.shot, self.plusScore)
+            i.hit(self.resources.shot, self.plusScore, self.resources.clicked)
 
         for i in self.targets:
             if (i.visible):

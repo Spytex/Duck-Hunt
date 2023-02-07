@@ -4,7 +4,6 @@ from src.drawer import button
 from src.drawer import slider
 from src.loader import parser
 
-
 class Resource():
 
     def __init__(self) -> None:
@@ -26,8 +25,10 @@ class Resource():
         self.run = True
         self.game_paused = True
         self.shot = False
+        self.clicked = False
 
-        self.level = self.arg.level
+
+        self.level = 10
         self.score = 0
         self.bgs = []
 

@@ -4,6 +4,7 @@ from src.resources import resources
 from src.objects.units import pig
 import random
 
+
 class Drawer():
     def __init__(self):
         self.menu_state = "main"
@@ -17,8 +18,6 @@ class Drawer():
         self.coords = self.getCoords()
         for i in range(self.resources.countPigs):
             self.targets.append(pig.Pig(self.coords[i], 50, 50))
-
-    
 
     def DrawText(self, text, font, text_col, x, y):
         self.img = font.render(text, True, text_col)

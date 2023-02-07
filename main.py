@@ -1,6 +1,5 @@
 import pygame
 from src.drawer import drawer
-from src.objects.units.pig import Pig
 
 
 class Game:

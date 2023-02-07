@@ -26,6 +26,7 @@ class Resource():
         self.shot = False
 
         self.level = 1
+        self.score = 0
         self.bgs = []
 
         self.TEXT_COL = (255, 255, 255)
@@ -64,6 +65,30 @@ class Resource():
         self.sound2_button = button.Button(320, 200, self.font.render('Sound 2', True, self.TEXT_COL), 1)
         self.sound3_button = button.Button(520, 200, self.font.render('Sound 3', True, self.TEXT_COL), 1)
 
+
+        self.levelSurface = pygame.Surface((self.SCREEN_WIDTH - 50, 50)).convert_alpha()
+        # self.levelSurface.fill((0,255,0, 1))
+
+        self.pauseButton = button.Button(30, 740, self.font.render('Pause', True, (255,255,255)), 0.7)
+
         self.yArrayPos = []
+        self.countPigs = 10
+
+
+        self.grid = []
+        self.gridSize = 10
 
         self.slider = slider.Slider(200, 300, 400, 100)
+
+        self.generateGrid()
+
+
+
+
+    def generateGrid(self):
+        x = -500
+        y = 50
+
+        for i in range(self.gridSize):
+            for j in range(self.gridSize):
+                self.grid.append([x + 50 * j, y + 50 * i])

@@ -12,12 +12,13 @@ class Drawer():
         self.resources = resources.Resource()
 
         self.targets = []
+        pos = 0
 
-        for i in range(10):
-            a = 0
-            self.targets.append(pig.Pig(self.generateCoords(), 50, 50))
-            self.resources.yArrayPos.append(a)
-            a += 50
+        self.coords = self.getCoords()
+        for i in range(self.resources.countPigs):
+            self.targets.append(pig.Pig(self.coords[i], 50, 50))
+
+    
 
     def DrawText(self, text, font, text_col, x, y):
         self.img = font.render(text, True, text_col)
@@ -104,26 +105,29 @@ class Drawer():
 
         if self.checkVisibility() != False :
             self.targets = []
-            for i in range(10):
-                self.targets.append(pig.Pig(self.generateCoords(), 50, 50))
+            self.coords = self.getCoords()
+            for i in range(self.resources.countPigs):
+                self.targets.append(pig.Pig(self.coords[i], 50, 50))
             self.resources.level += 1
+            self.resources.countPigs += 2
+
+        
 
         self.moveTargets()
 
     def moveTargets(self):
         for i in self.targets:
             i.move(self.resources.SCREEN_WIDTH, self.resources.level)
-            i.hit(self.resources.shot)
+            i.hit(self.resources.shot, self.plusScore)
 
         for i in self.targets:
             if (i.visible):
                 self.resources.screen.blit(pygame.transform.scale(self.resources.enemyImage, (50,50)) , (i.x,i.y))
-
-
+        self.drawBanner()
         pygame.display.update()
 
-    def generateCoords(self):
-        return (random.randint(-250 , -50), random.randint(10, self.resources.SCREEN_HEIGHT - 100))
+    def getCoords(self):
+        return random.sample(self.resources.grid, self.resources.countPigs)
 
     def checkVisibility(self):
         for i in self.targets:
@@ -131,4 +135,16 @@ class Drawer():
                 return False
             
         return True
+
+    def drawBanner(self):
+        self.resources.screen.blit(self.resources.levelSurface, (25,740))
+        self.resources.levelSurface.fill((0,0,0,1))
+        self.resources.levelSurface.blit(pygame.transform.scale(self.resources.font.render(f"Level: {self.resources.level}", True, (255,255,255)), (110,50)), (310,0) )
+        self.resources.levelSurface.blit(pygame.transform.scale(self.resources.font.render(f"Score: {self.resources.score}", True, (255,255,255)), (110,50)), (620,0) )
+        if self.resources.pauseButton.draw(self.resources.screen):
+            self.resources.game_paused = True
+            self.resources.menu_state = "main"
+
+    def plusScore(self):
+        self.resources.score += 10
         

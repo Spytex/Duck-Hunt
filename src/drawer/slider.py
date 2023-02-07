@@ -1,6 +1,7 @@
 import pygame
 from src.loader import loader
 
+
 class Slider():
     def __init__(self, x, y, width, height):
         self.slider_rect = pygame.Rect(x, y, width, height)
@@ -26,7 +27,7 @@ class Slider():
                         self.dragging = False
                         if self.volume != self.load.volume:
                             self.load.updateJSONFile(self.path, self.fileName, "volume", self.volume)
-                            self.load.loadMusic()
+                            self.load.loadGeneralMusic()
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if event.button == 1:
                         # Check if the mouse is over the knob
@@ -37,7 +38,6 @@ class Slider():
                         # Calculate the new volume based on the mouse position
                         self.volume = (event.pos[0] - self.slider_rect.x) / self.slider_rect.width
                         self.volume = max(0.0, min(1.0, self.volume))
-                        print("Volume:", self.volume)
 
         pygame.draw.rect(screen, (0, 0, 0), self.slider_special, 2)
         self.knob_rect.x = self.slider_rect.x + int(self.slider_rect.width * self.volume) - 50

@@ -9,7 +9,7 @@ class Drawer():
     def __init__(self):
         self.menu_state = "main"
         self.load = loader.Loader()
-
+        self.mouse_pos = pygame.mouse.get_pos()
         self.resources = resources.Resource()
 
         self.targets = []
@@ -81,7 +81,6 @@ class Drawer():
                     self.resources.menu_state = "options"
         else:
             self.DrawLevel()
-            # self.DrawText("Press SPACE to pause", self.font, self.TEXT_COL, 145, 350)
 
         # event handler
         for event in pygame.event.get():
@@ -91,23 +90,19 @@ class Drawer():
                 if event.key == pygame.K_ESCAPE:
                     self.resources.game_paused = not self.resources.game_paused
             if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+                self.mouse_pos = pygame.mouse.get_pos()
                 self.resources.shot = True
-            if event.type == pygame.MOUSEBUTTONUP and event.button == 1:
-                self.resources.shot = False
-
             if event.type == pygame.QUIT:
                 pygame.quit()
 
         pygame.display.update()  # flip()
 
     def DrawLevel(self):
-
         if(self.resources.HP <= 0):
             self.resources.game_paused = True
             self.resources.menu_state = "main"
             return
 
-        # pygame.display.set_caption("Level " + str(self.level+1))
         for i in range(2):
             self.resources.bgs.append(pygame.image.load(f'assets/bg/background{i+1}.png'))
         self.resources.screen.fill('black')
@@ -128,7 +123,7 @@ class Drawer():
     def moveTargets(self):
         for i in self.targets:
             i.move(self.resources.SCREEN_WIDTH, self.resources.level, self.minusHP)
-            i.hit(self.resources.shot, self.plusScore, self.resources.clicked)
+            self.resources.shot = i.hit(self.resources.shot, self.plusScore, self.mouse_pos)
 
         for i in self.targets:
             if (i.visible):

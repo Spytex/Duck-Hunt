@@ -1,4 +1,6 @@
 import pygame
+from src.drawer import drawer
+
 
 class Pig():
     def __init__(self, coords, width, height):
@@ -9,6 +11,7 @@ class Pig():
         self.visible = True
         self.speed = 5
         self.rect = pygame.Rect(coords[0], coords[1], width, height)
+        self.pig = 0
 
     def move(self, width, level, HP):
         self.rect = pygame.Rect(self.x, self.y, self.size[0],  self.size[1])
@@ -19,7 +22,8 @@ class Pig():
                 HP()
             self.x = -50
 
-    def hit(self, shot, score, mouse_pos):
+    def hit(self, shot, score, mouse_pos, countPigs):
+        self.pig += 1
         if (self.rect.collidepoint(mouse_pos)):
             if shot:
                 shot = False
@@ -30,5 +34,8 @@ class Pig():
                         self.visible = False     
                 else:
                     self.visible = False
+        if (self.pig == countPigs):
+            shot = False
+            self.pig = 0
         return shot
             

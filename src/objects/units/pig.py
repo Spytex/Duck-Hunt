@@ -16,7 +16,8 @@ class Pig():
         if (self.x < width):
             self.x += self.speed * (level * 0.3 if level else 1)
         else:
-            HP()
+            if(self.visible == True):
+                HP()
             self.x = -50
         
         

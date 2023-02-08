@@ -13,15 +13,7 @@ class Drawer():
         self.resources = resources.Resource()
 
         self.targets = []
-        if self.resources.level != 1:
-            self.resources.countPigs += self.resources.level
-            self.coords = self.getCoords()
-            for i in range(self.resources.countPigs):
-                self.targets.append(pig.Pig(self.coords[i], 50, 50))
-        else:
-            self.coords = self.getCoords()
-            for i in range(self.resources.countPigs):
-                self.targets.append(pig.Pig(self.coords[i], 50, 50))
+        self.initTargets()
 
     def DrawText(self, text, font, text_col, x, y):
         self.img = font.render(text, True, text_col)
@@ -79,6 +71,15 @@ class Drawer():
                     self.resources.load.loadGeneralMusic()
                 if self.resources.back_button.draw(self.resources.screen):
                     self.resources.menu_state = "options"
+            if self.resources.menu_state == "game_over":
+                self.resources.screen.blit(pygame.transform.scale(self.resources.font.render(f"Score: {self.resources.score}", True, (255,255,255)), (110,50)), (340,300) )
+                if self.resources.restartButton.draw(self.resources.screen):
+                    self.resources.game_paused = False
+                    self.initTargets()
+                if self.resources.goMenuButton.draw(self.resources.screen):
+                    self.resources.game_paused = True
+                    self.resources.menu_state = "main"
+
         else:
             self.DrawLevel()
             # self.DrawText("Press SPACE to pause", self.font, self.TEXT_COL, 145, 350)
@@ -104,7 +105,9 @@ class Drawer():
 
         if(self.resources.HP <= 0):
             self.resources.game_paused = True
-            self.resources.menu_state = "main"
+            self.resources.menu_state = "game_over"
+            self.resources.HP = 100
+            self.initTargets()
             return
 
         # pygame.display.set_caption("Level " + str(self.level+1))
@@ -162,4 +165,17 @@ class Drawer():
 
     def minusHP(self):
         self.resources.HP -= 10
+
+
+    def initTargets(self):
+        self.targets = []
+        if self.resources.level != 1 and self.resources.menu_state != "game_over":
+            self.resources.countPigs += self.resources.level
+            self.coords = self.getCoords()
+            for i in range(self.resources.countPigs):
+                self.targets.append(pig.Pig(self.coords[i], 50, 50))
+        else:
+            self.coords = self.getCoords()
+            for i in range(self.resources.countPigs):
+                self.targets.append(pig.Pig(self.coords[i], 50, 50))
         

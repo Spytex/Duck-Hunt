@@ -31,7 +31,7 @@ class Resource():
         self.clicked = False
 
         
-        self.level = self.arg.level if self.arg.level != None else 1
+        self.level = self.arg.level if self.arg.level != None else 10
         self.score = 0
         self.bgs = []
 
@@ -75,6 +75,10 @@ class Resource():
         # self.levelSurface.fill((0,255,0, 1))
 
         self.pauseButton = button.Button(self.SCREEN_WIDTH*0.0375, self.SCREEN_HEIGHT*0.925, self.font.render('Pause', True, (255, 255, 255)), 0.7)
+
+
+        self.restartButton = button.Button(340,350, self.font.render('Restart', True, (255, 255, 255)), 0.7)
+        self.goMenuButton = button.Button(340,400, self.font.render('Menu', True, (255, 255, 255)), 0.7)
 
         self.yArrayPos = []
         self.countPigs = 10

@@ -72,13 +72,18 @@ class Drawer():
                 if self.resources.back_button.draw(self.resources.screen):
                     self.resources.menu_state = "options"
             if self.resources.menu_state == "game_over":
+                self.resources.level = 1
+                self.resources.countPigs = 10
+                self.initTargets()
                 self.resources.screen.blit(pygame.transform.scale(self.resources.font.render(f"Score: {self.resources.score}", True, (255,255,255)), (110,50)), (340,300) )
                 if self.resources.restartButton.draw(self.resources.screen):
+                    self.resources.score = 0
                     self.resources.game_paused = False
-                    self.initTargets()
                 if self.resources.goMenuButton.draw(self.resources.screen):
+                    self.resources.score = 0
                     self.resources.game_paused = True
                     self.resources.menu_state = "main"
+
 
         else:
             self.DrawLevel()
@@ -99,7 +104,7 @@ class Drawer():
         pygame.display.update()  # flip()
 
     def DrawLevel(self):
-        if(self.resources.HP <= 0):
+        if (self.resources.HP <= 0):
             self.resources.game_paused = True
             self.resources.menu_state = "game_over"
             self.resources.HP = 100
@@ -126,7 +131,7 @@ class Drawer():
     def moveTargets(self):
         for i in self.targets:
             i.move(self.resources.SCREEN_WIDTH, self.resources.level, self.minusHP)
-            self.resources.shot = i.hit(self.resources.shot, self.plusScore, self.mouse_pos)
+            self.resources.shot = i.hit(self.resources.shot, self.plusScore, self.mouse_pos, self.resources.countPigs)
 
         for i in self.targets:
             if (i.visible):

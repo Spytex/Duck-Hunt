@@ -13,7 +13,6 @@ class Resource():
 
         self.FPS = self.load.fps
 
-
         self.HP = 100
 
         # strings
@@ -28,10 +27,10 @@ class Resource():
         self.run = True
         self.game_paused = True
         self.shot = False
-        self.clicked = False
+      
 
         
-        self.level = self.arg.level if self.arg.level != None else 10
+        self.level = self.arg.level if self.arg.level != None else 1
         self.score = 0
         self.bgs = []
 

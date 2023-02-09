@@ -3,7 +3,7 @@ from src.loader import loader
 
 
 class Button():
-    def __init__(self, x, y, image, scale):
+    def __init__(self, x:int, y:int, image, scale:int):
         width = image.get_width()
         height = image.get_height()
         self.image = pygame.transform.scale(image, (int(width * scale), int(height * scale)))
@@ -12,7 +12,11 @@ class Button():
         self.clicked = False
         self.loader = loader.Loader()
 
-    def draw(self, surface):
+    def draw(self, surface:pygame.surface):
+
+        """ 
+            Draw button and add click Event
+        """
         action = False
         # get mouse position
         pos = pygame.mouse.get_pos()

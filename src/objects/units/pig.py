@@ -14,15 +14,21 @@ class Pig():
         self.pig = 0
 
     def move(self, width, level, HP):
+        """
+            Move method, change coordinaqtes
+        """
         self.rect = pygame.Rect(self.x, self.y, self.size[0],  self.size[1])
         if (self.x < width):
             self.x += self.speed * (level * 0.3 if level else 1)
         else:
-            if(self.visible == True):
+            if(self.visible):
                 HP()
             self.x = -50
 
     def hit(self, shot, score, mouse_pos, countPigs):
+        """
+            check hit  method
+        """
         self.pig += 1
         if (self.rect.collidepoint(mouse_pos)):
             if shot:

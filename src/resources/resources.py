@@ -5,7 +5,9 @@ from src.drawer import slider
 from src.loader import parser
 
 class Resource():
-
+    """
+       class Resource of game
+    """
     def __init__(self) -> None:
         self.load = loader.Loader()
         self.parser = parser.Parser()
@@ -90,6 +92,10 @@ class Resource():
         self.generateGrid()
 
     def generateGrid(self):
+
+        """
+            generate grid to situated targets
+        """
         x = -500
         y = 50
 

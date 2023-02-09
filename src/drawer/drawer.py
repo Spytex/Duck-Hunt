@@ -15,11 +15,17 @@ class Drawer():
         self.targets = []
         self.initTargets()
 
-    def DrawText(self, text, font, text_col, x, y):
+    def DrawText(self, text, font, text_col, x:int, y:int):
+        """ 
+            Draw Text
+        """
         self.img = font.render(text, True, text_col)
         self.resources.screen.blit(self.img, (x, y))
 
     def DrawMenu(self):
+        """ 
+            Draw Menu
+        """
         self.resources.screen.fill((52, 78, 91))
         # check if game is paused
         if self.resources.game_paused == True:
@@ -28,50 +34,50 @@ class Drawer():
                 # draw pause screen buttons
                 if self.resources.resume_button.draw(self.resources.screen):
                     self.resources.game_paused = False
-                if self.resources.options_button.draw(self.resources.screen):
+                elif self.resources.options_button.draw(self.resources.screen):
                     self.resources.menu_state = "options"
-                if self.resources.quit_button.draw(self.resources.screen):
+                elif self.resources.quit_button.draw(self.resources.screen):
                     self.resources.run = False
             # check if the options menu is open
-            if self.resources.menu_state == "options":
+            elif self.resources.menu_state == "options":
                 # draw the different options buttons
                 if self.resources.video_button.draw(self.resources.screen):
                     self.resources.menu_state = "video settings"
-                if self.resources.audio_button.draw(self.resources.screen):
+                elif self.resources.audio_button.draw(self.resources.screen):
                     self.resources.menu_state = "audio settings"
-                if self.resources.back_button.draw(self.resources.screen):
+                elif self.resources.back_button.draw(self.resources.screen):
                     self.resources.menu_state = "main"
-            if self.resources.menu_state == "video settings":
+            elif self.resources.menu_state == "video settings":
                 self.DrawText("Select FPS", self.resources.font, self.resources.TEXT_COL, 270, 100)
                 if self.resources.fps240_button.draw(self.resources.screen):
                     self.resources.load.updateJSONFile(self.resources.path, self.resources.fileName, "fps", 240)
-                if self.resources.fps144_button.draw(self.resources.screen):
+                elif self.resources.fps144_button.draw(self.resources.screen):
                     self.resources.load.updateJSONFile(self.resources.path, self.resources.fileName, "fps", 144)
-                if self.resources.fps60_button.draw(self.resources.screen):
+                elif self.resources.fps60_button.draw(self.resources.screen):
                     self.resources.load.updateJSONFile(self.resources.path, self.resources.fileName, "fps", 60)
-                if self.resources.back_button.draw(self.resources.screen):
+                elif self.resources.back_button.draw(self.resources.screen):
                     self.resources.menu_state = "options"
-            if self.resources.menu_state == "audio settings":
+            elif self.resources.menu_state == "audio settings":
                 if self.resources.slider.draw(self.resources.screen):
                     pass
-                if self.resources.sound1_button.draw(self.resources.screen):
+                elif self.resources.sound1_button.draw(self.resources.screen):
                     self.resources.sound = "music1.mp3"
                     self.resources.load.updateJSONFile(self.resources.path, self.resources.fileName, "volume", self.resources.slider.volume)
                     self.resources.load.updateJSONFile(self.resources.path, self.resources.fileName, "sound", self.resources.sound)
                     self.resources.load.loadGeneralMusic()
-                if self.resources.sound2_button.draw(self.resources.screen):
+                elif self.resources.sound2_button.draw(self.resources.screen):
                     self.resources.sound = "music2.mp3"
                     self.resources.load.updateJSONFile(self.resources.path, self.resources.fileName, "volume", self.resources.slider.volume)
                     self.resources.load.updateJSONFile(self.resources.path, self.resources.fileName, "sound", self.resources.sound)
                     self.resources.load.loadGeneralMusic()
-                if self.resources.sound3_button.draw(self.resources.screen):
+                elif self.resources.sound3_button.draw(self.resources.screen):
                     self.resources.sound = "music3.mp3"
                     self.resources.load.updateJSONFile(self.resources.path, self.resources.fileName, "volume", self.resources.slider.volume)
                     self.resources.load.updateJSONFile(self.resources.path, self.resources.fileName, "sound", self.resources.sound)
                     self.resources.load.loadGeneralMusic()
-                if self.resources.back_button.draw(self.resources.screen):
+                elif self.resources.back_button.draw(self.resources.screen):
                     self.resources.menu_state = "options"
-            if self.resources.menu_state == "game_over":
+            elif self.resources.menu_state == "game_over":
                 self.resources.level = 1
                 self.resources.countPigs = 10
                 self.initTargets()
@@ -79,7 +85,7 @@ class Drawer():
                 if self.resources.restartButton.draw(self.resources.screen):
                     self.resources.score = 0
                     self.resources.game_paused = False
-                if self.resources.goMenuButton.draw(self.resources.screen):
+                elif self.resources.goMenuButton.draw(self.resources.screen):
                     self.resources.score = 0
                     self.resources.game_paused = True
                     self.resources.menu_state = "main"
@@ -93,7 +99,7 @@ class Drawer():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
                     self.resources.game_paused = not self.resources.game_paused
-                if event.key == pygame.K_ESCAPE:
+                elif event.key == pygame.K_ESCAPE:
                     self.resources.game_paused = not self.resources.game_paused
             if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
                 self.mouse_pos = pygame.mouse.get_pos()
@@ -104,6 +110,9 @@ class Drawer():
         pygame.display.update()  # flip()
 
     def DrawLevel(self):
+        """ 
+            Draw Level
+        """
         if (self.resources.HP <= 0):
             self.resources.game_paused = True
             self.resources.menu_state = "game_over"
@@ -116,7 +125,7 @@ class Drawer():
         self.resources.screen.fill('black')
         self.resources.screen.blit(self.resources.bgs[self.resources.level % 2], (0, 0))
 
-        if self.checkVisibility() != False :
+        if self.checkVisibility() :
             self.targets = []
             self.coords = self.getCoords()
             for i in range(self.resources.countPigs):
@@ -129,6 +138,9 @@ class Drawer():
         self.moveTargets()
 
     def moveTargets(self):
+        """ 
+           moveTargets method
+        """
         for i in self.targets:
             i.move(self.resources.SCREEN_WIDTH, self.resources.level, self.minusHP)
             self.resources.shot = i.hit(self.resources.shot, self.plusScore, self.mouse_pos, self.resources.countPigs)
@@ -140,16 +152,25 @@ class Drawer():
         pygame.display.update()
 
     def getCoords(self):
+        """ 
+           return list of coordianter for targent
+        """
         return random.sample(self.resources.grid, self.resources.countPigs)
 
     def checkVisibility(self):
+        """ 
+           check Visibility of each target
+        """
         for i in self.targets:
-            if i.visible == True:
+            if i.visible:
                 return False
             
         return True
 
     def drawBanner(self):
+        """ 
+           draw banner wit h level score and button pause
+        """
         self.resources.screen.blit(self.resources.levelSurface, (25,740))
         self.resources.screen.blit(pygame.transform.scale(self.resources.font.render(f"HP: {self.resources.HP}", True, (255,255,255)), (90,40)), (350,5) )
 
@@ -168,6 +189,9 @@ class Drawer():
 
 
     def initTargets(self):
+        """ 
+           init Targets method
+        """
         self.targets = []
         if self.resources.level != 1 and self.resources.menu_state != "game_over":
             self.resources.countPigs += self.resources.level

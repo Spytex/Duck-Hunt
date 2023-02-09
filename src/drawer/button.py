@@ -3,7 +3,7 @@ from src.loader import loader
 
 
 class Button():
-    def __init__(self, x:int, y:int, image, scale:int):
+    def __init__(self, x: float, y: float, image, scale: float):
         width = image.get_width()
         height = image.get_height()
         self.image = pygame.transform.scale(image, (int(width * scale), int(height * scale)))
@@ -12,8 +12,7 @@ class Button():
         self.clicked = False
         self.loader = loader.Loader()
 
-    def draw(self, surface:pygame.surface):
-
+    def draw(self, surface: pygame.surface):
         """ 
             Draw button and add click Event
         """
@@ -24,7 +23,7 @@ class Button():
         # check mouseover and clicked conditions
         if self.rect.collidepoint(pos):
             for event in pygame.event.get():
-                if event.type == pygame.MOUSEBUTTONDOWN and self.clicked == False:
+                if event.type == pygame.MOUSEBUTTONDOWN and not self.clicked:
                     self.clicked = True
                     action = True
                     yesSound = self.loader.loadSound('yes')

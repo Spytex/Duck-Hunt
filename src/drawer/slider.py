@@ -1,22 +1,26 @@
 import pygame
+import os
 from src.loader import loader
 
 
 class Slider():
-    def __init__(self, x, y, width, height):
+    def __init__(self, x: float, y: float, width: int, height: int):
         self.slider_rect = pygame.Rect(x, y, width, height)
         self.slider_special = pygame.Rect(x-53, y-3, width+106, height+6)
         self.knob_rect = pygame.Rect(self.slider_rect.x + self.slider_rect.width * 0.5, self.slider_rect.y, 100, 100)
         self.load = loader.Loader()
-        self.volume = self.load.volume #
-        knob_image = pygame.image.load("assets/menu/pig.png").convert_alpha() #
+        self.volume = self.load.volume
+        knob_image = pygame.image.load(os.path.join('assets', 'menu', 'pig.png')).convert_alpha()
         self.knob_image = pygame.transform.scale(knob_image, (100, 100))
-        self.font = pygame.font.SysFont("Comic Sans MS", 50) #
-        self.path = "src/settings"  # pathSettings
-        self.fileName = "settings"  # fileSettings
+        self.font = pygame.font.SysFont("Comic Sans MS", 50)
+        self.path = os.path.join('src', 'settings')
+        self.fileName = "settings"
         self.dragging = False
 
     def draw(self, screen):
+        """
+            Draw slider and add click Event
+        """
         action = False
         pos = pygame.mouse.get_pos()
         if self.knob_rect.collidepoint(pos):

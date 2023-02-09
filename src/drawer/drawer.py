@@ -1,8 +1,9 @@
 import pygame
+import random
+import os
 from src.loader import loader
 from src.resources import resources
 from src.objects.units import pig
-import random
 
 
 class Drawer():
@@ -15,7 +16,7 @@ class Drawer():
         self.targets = []
         self.initTargets()
 
-    def DrawText(self, text, font, text_col, x:int, y:int):
+    def DrawText(self, text: str, font, text_col, x: int, y: int):
         """ 
             Draw Text
         """
@@ -28,7 +29,7 @@ class Drawer():
         """
         self.resources.screen.fill((52, 78, 91))
         # check if game is paused
-        if self.resources.game_paused == True:
+        if self.resources.game_paused:
             # check menu state
             if self.resources.menu_state == "main":
                 # draw pause screen buttons
@@ -90,7 +91,6 @@ class Drawer():
                     self.resources.game_paused = True
                     self.resources.menu_state = "main"
 
-
         else:
             self.DrawLevel()
 
@@ -113,7 +113,7 @@ class Drawer():
         """ 
             Draw Level
         """
-        if (self.resources.HP <= 0):
+        if self.resources.HP <= 0:
             self.resources.game_paused = True
             self.resources.menu_state = "game_over"
             self.resources.HP = 100
@@ -121,19 +121,17 @@ class Drawer():
             return
 
         for i in range(2):
-            self.resources.bgs.append(pygame.image.load(f'assets/bg/background{i+1}.png'))
+            self.resources.bgs.append(pygame.image.load(os.path.join('assets', 'bg', f'background{i+1}.png')))
         self.resources.screen.fill('black')
         self.resources.screen.blit(self.resources.bgs[self.resources.level % 2], (0, 0))
 
-        if self.checkVisibility() :
+        if self.checkVisibility():
             self.targets = []
             self.coords = self.getCoords()
             for i in range(self.resources.countPigs):
                 self.targets.append(pig.Pig(self.coords[i], 50, 50))
             self.resources.level += 1
             self.resources.countPigs += 1 
-
-        
 
         self.moveTargets()
 
@@ -147,7 +145,7 @@ class Drawer():
 
         for i in self.targets:
             if (i.visible):
-                self.resources.screen.blit(pygame.transform.scale(self.resources.enemyImage, (50,50)) , (i.x,i.y))
+                self.resources.screen.blit(pygame.transform.scale(self.resources.enemyImage, (50,50)), (i.x,i.y))
         self.drawBanner()
         pygame.display.update()
 
@@ -186,7 +184,6 @@ class Drawer():
 
     def minusHP(self):
         self.resources.HP -= 10
-
 
     def initTargets(self):
         """ 

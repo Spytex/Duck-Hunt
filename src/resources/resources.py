@@ -1,8 +1,10 @@
 import pygame
+import os
 from src.loader import loader
 from src.drawer import button
 from src.drawer import slider
 from src.loader import parser
+
 
 class Resource():
     """
@@ -19,20 +21,18 @@ class Resource():
 
         # strings
         self.menu_state = "main"
-        self.path = "src/settings"
+        self.path = os.path.join("src", "settings")
         self.fileName = "settings"
-        self.imageMenuPath = "assets/menu/"
-        self.imageTargetsPath = "assets/targets/"
+        self.imageMenuPath = os.path.join("assets", "menu", "")
+        self.imageTargetsPath = os.path.join("assets", "targets", "")
         self.data = {}
 
         # booleans
         self.run = True
         self.game_paused = True
         self.shot = False
-      
 
-        
-        self.level = self.arg.level if self.arg.level != None else 1
+        self.level = self.arg.level
         self.score = 0
         self.bgs = []
 
@@ -55,7 +55,7 @@ class Resource():
         self.video_img = pygame.image.load(self.imageMenuPath + "button_video.png").convert_alpha()
         self.audio_img = pygame.image.load(self.imageMenuPath + "button_audio.png").convert_alpha()
         self.back_img = pygame.image.load(self.imageMenuPath + "button_back.png").convert_alpha()
-
+        self.knob_image = pygame.image.load(self.imageMenuPath + "pig.png").convert_alpha()
         self.enemyImage = pygame.image.load(self.imageTargetsPath + "pig.png").convert_alpha()
 
         # buttons
@@ -76,7 +76,6 @@ class Resource():
         # self.levelSurface.fill((0,255,0, 1))
 
         self.pauseButton = button.Button(self.SCREEN_WIDTH*0.0375, self.SCREEN_HEIGHT*0.925, self.font.render('Pause', True, (255, 255, 255)), 0.7)
-
 
         self.restartButton = button.Button(340,350, self.font.render('Restart', True, (255, 255, 255)), 0.7)
         self.goMenuButton = button.Button(340,400, self.font.render('Menu', True, (255, 255, 255)), 0.7)

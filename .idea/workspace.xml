@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8922b4f1-6680-4e76-8f7e-f834898388eb" name="Changes" comment="unit test update" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2LEgBpHfdoFKooCDjWer0ROqxtq" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/vanes/PycharmProjects/Duck-Hunt/src/drawer",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\vanes\PycharmProjects\Duck-Hunt\src\drawer" />
+      <recent name="C:\Users\vanes\PycharmProjects\Duck-Hunt\src\loader" />
+      <recent name="C:\Users\vanes\PycharmProjects\Duck-Hunt\src\objects\units" />
+      <recent name="C:\Users\vanes\PycharmProjects\Duck-Hunt\src\objects" />
+      <recent name="C:\Users\vanes\PycharmProjects\Duck-Hunt\src\resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\vanes\PycharmProjects\Duck-Hunt\.github\workflows" />
+      <recent name="C:\Users\vanes\PycharmProjects\Duck-Hunt" />
+      <recent name="C:\Users\vanes\PycharmProjects\Duck-Hunt\assets\sounds" />
+      <recent name="C:\Users\vanes\PycharmProjects\Duck-Hunt\assets\targets" />
+      <recent name="C:\Users\vanes\PycharmProjects\Duck-Hunt\assets\menu" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python tests.Python tests in unit_test.py">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Duck-Hunt" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests in unit_test.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="Duck-Hunt" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Unit_test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/Unit_test/unit_test.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="Duck-Hunt" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Unit_test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <EXTENSION ID="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
+        </ENTRIES>
+      </EXTENSION>
+      <option name="_new_additionalArguments" value="&quot;python -m pytest&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;CUSTOM&quot;" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.main" />
+      <item itemvalue="Python tests.Python tests in unit_test.py" />
+      <item itemvalue="Python tests.Python tests" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python tests.Python tests in unit_test.py" />
+        <item itemvalue="Python tests.Python tests" />
+        <item itemvalue="Python.main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8922b4f1-6680-4e76-8f7e-f834898388eb" name="Changes" comment="" />
+      <created>1675441523656</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1675441523656</updated>
+      <workItem from="1675441538995" duration="4030000" />
+      <workItem from="1675454717758" duration="5534000" />
+      <workItem from="1675463689102" duration="2919000" />
+      <workItem from="1675467438011" duration="3892000" />
+      <workItem from="1675513534709" duration="2333000" />
+      <workItem from="1675521202945" duration="37000" />
+      <workItem from="1675544766556" duration="273000" />
+      <workItem from="1675545199811" duration="69000" />
+      <workItem from="1675545414637" duration="607000" />
+      <workItem from="1675555474277" duration="1225000" />
+      <workItem from="1675591117128" duration="778000" />
+      <workItem from="1675593790314" duration="21000" />
+      <workItem from="1675596967768" duration="18981000" />
+      <workItem from="1675626901306" duration="11956000" />
+      <workItem from="1675680623255" duration="7723000" />
+      <workItem from="1675717934470" duration="451000" />
+      <workItem from="1675718399580" duration="11577000" />
+      <workItem from="1675762354255" duration="286000" />
+      <workItem from="1675782113034" duration="5892000" />
+      <workItem from="1675792308526" duration="845000" />
+      <workItem from="1675793203635" duration="229000" />
+      <workItem from="1675840138922" duration="47000" />
+      <workItem from="1675846925228" duration="1073000" />
+      <workItem from="1675848021484" duration="4000" />
+      <workItem from="1675848030702" duration="25000" />
+      <workItem from="1675848064400" duration="5000" />
+      <workItem from="1675848076249" duration="22000" />
+      <workItem from="1675848105092" duration="2000" />
+      <workItem from="1675848332625" duration="6032000" />
+      <workItem from="1675942901075" duration="1258000" />
+      <workItem from="1675944807659" duration="4135000" />
+      <workItem from="1675950093811" duration="9000" />
+      <workItem from="1676572112485" duration="1088000" />
+      <workItem from="1678967813013" duration="5740000" />
+      <workItem from="1678974084141" duration="151000" />
+      <workItem from="1678974246166" duration="19000" />
+      <workItem from="1678974274017" duration="86000" />
+      <workItem from="1678974369276" duration="14000" />
+      <workItem from="1678974394420" duration="6115000" />
+    </task>
+    <task id="LOCAL-00001" summary="11">
+      <created>1675444582738</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1675444582738</updated>
+    </task>
+    <task id="LOCAL-00002" summary="11">
+      <created>1675448471939</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1675448471939</updated>
+    </task>
+    <task id="LOCAL-00003" summary="11">
+      <created>1675459489249</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1675459489249</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Created main menu, buttons and part of pause">
+      <created>1675466509941</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1675466509941</updated>
+    </task>
+    <task id="LOCAL-00005" summary="fixed menu error">
+      <created>1675471350481</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1675471350481</updated>
+    </task>
+    <task id="LOCAL-00006" summary="background update">
+      <created>1675556694612</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1675556694612</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Deleted useless files">
+      <created>1675591420927</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1675591420927</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Settings in json file, Video settings (FPS), unit functions, bug fix">
+      <created>1675617107142</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1675617107142</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Audio settings: volume slider, music selector.">
+      <created>1675645237163</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1675645237163</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Audio settings: volume slider, music selector.">
+      <created>1675687398594</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1675687398594</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Audio settings: volume slider, music selector.">
+      <created>1675729826312</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1675729826312</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Bug fix, argparse">
+      <created>1675788007215</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1675788007215</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Bug fix">
+      <created>1675850052729</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1675850052730</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Game over menu, level bug fix. Updated hit function.">
+      <created>1675853429172</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1675853429172</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Deleted heart.png">
+      <created>1675853858606</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1675853858606</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Optimization, integration of os library, documentation of functions.">
+      <created>1675948986297</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1675948986297</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Updated project architecture. And added unit_test.py.">
+      <created>1678973634660</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1678973634660</updated>
+    </task>
+    <task id="LOCAL-00018" summary="unit test update">
+      <created>1678980392373</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1678980392373</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="11" />
+    <MESSAGE value="Created main menu, buttons and part of pause" />
+    <MESSAGE value="fixed menu error" />
+    <MESSAGE value="background update" />
+    <MESSAGE value="Deleted useless files" />
+    <MESSAGE value="Settings in json file, Video settings (FPS), unit functions, bug fix" />
+    <MESSAGE value="Audio settings: volume slider, music selector." />
+    <MESSAGE value="Bug fix, argparse" />
+    <MESSAGE value="Bug fix" />
+    <MESSAGE value="Game over menu, level bug fix. Updated hit function." />
+    <MESSAGE value="Deleted heart.png" />
+    <MESSAGE value="Optimization, integration of os library, documentation of functions." />
+    <MESSAGE value="Updated project architecture. And added unit_test.py." />
+    <MESSAGE value="unit test update" />
+    <option name="LAST_COMMIT_MESSAGE" value="unit test update" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Duck_Hunt$.coverage" NAME=" Coverage Results" MODIFIED="1678980219229" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Unit_test" />
+    <SUITE FILE_PATH="coverage/Duck_Hunt$main.coverage" NAME="main Coverage Results" MODIFIED="1678979106998" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>

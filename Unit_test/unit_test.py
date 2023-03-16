@@ -7,7 +7,6 @@ from src.Drawer.drawer import Drawer
 # python -m pytest
 # only console
 
-
 @pytest.fixture
 def resource():
     return Resource()

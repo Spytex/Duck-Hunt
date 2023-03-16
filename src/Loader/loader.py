@@ -6,7 +6,7 @@ import os
 class Loader():
     def __init__(self):
         pygame.init()
-        self.settings = self.readJSONFile("src/settings", "settings")
+        self.settings = self.readJSONFile(os.path.join('src', 'settings'), "settings")
         self.fps = self.settings['fps']
         self.sound = self.settings['sound']
         self.volume = self.settings['volume']

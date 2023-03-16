@@ -1,5 +1,5 @@
 import pygame
-from src.drawer import drawer
+from src.Drawer import drawer
 
 
 class Game:

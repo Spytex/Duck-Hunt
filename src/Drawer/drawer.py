@@ -1,9 +1,9 @@
 import pygame
 import random
 import os
-from src.Loader import loader
-from src.Resources import resources
-from src.Objects.units import pig
+from src.loader import loader
+from src.resources import resources
+from src.objects.units import pig
 
 
 class Drawer():

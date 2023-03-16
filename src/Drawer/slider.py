@@ -1,6 +1,6 @@
 import pygame
 import os
-from src.Loader import loader
+from src.loader import loader
 
 
 class Slider():

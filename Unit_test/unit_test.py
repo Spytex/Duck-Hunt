@@ -42,3 +42,4 @@ def test_loader_read(loader, path):
 def test_loader_load_sound(loader):
     data = loader.loadSound("yes")
     assert type(data) == pygame.mixer.Sound
+

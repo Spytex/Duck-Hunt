@@ -55,6 +55,7 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
     "vue.rearranger.settings.migration": "true"
   }
@@ -197,7 +198,7 @@
       <workItem from="1678974246166" duration="19000" />
       <workItem from="1678974274017" duration="86000" />
       <workItem from="1678974369276" duration="14000" />
-      <workItem from="1678974394420" duration="6115000" />
+      <workItem from="1678974394420" duration="6528000" />
     </task>
     <task id="LOCAL-00001" summary="11">
       <created>1675444582738</created>
@@ -325,7 +326,21 @@
       <option name="project" value="LOCAL" />
       <updated>1678980392373</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="unit test update">
+      <created>1678980766739</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1678980766739</updated>
+    </task>
+    <task id="LOCAL-00020" summary="unit test update">
+      <created>1678980918571</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1678980918571</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

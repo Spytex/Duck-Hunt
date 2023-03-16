@@ -10,7 +10,7 @@ class Loader():
         self.fps = self.settings['fps']
         self.sound = self.settings['sound']
         self.volume = self.settings['volume']
-        self.yesSound = self.loadSound('yes')
+        # self.yesSound = self.loadSound('yes')
 
     def readJSONFile(self, path: str, fileName: str):
         """

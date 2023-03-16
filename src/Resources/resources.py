@@ -1,9 +1,9 @@
 import pygame
 import os
-from src.Loader import loader
-from src.Drawer import button
-from src.Drawer import slider
-from src.Loader import parser
+from src.loader import loader
+from src.drawer import button
+from src.drawer import slider
+from src.loader import parser
 
 
 class Resource():

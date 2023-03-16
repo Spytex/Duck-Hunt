@@ -1,5 +1,5 @@
 import pygame
-from src.loader import loader
+from src.Loader import loader
 
 
 class Button():

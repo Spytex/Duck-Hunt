@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>flake8 violations: src\Resources\resources.py</title>
+      <meta http-equiv="Content-Type" value="text/html; charset=UTF-8">
+      <link rel="stylesheet" href="styles.css">
+<script>
+function bindHandler(link) {
+   var code = link.getAttribute('data-code');
+   var key = location.pathname + '#' + code;
+
+   var ul = link.parentNode.querySelector('.details');
+   if (sessionStorage[key] != 'open') {
+      ul.style.display = 'none';
+   }
+   link.addEventListener('click', function (event) {
+      if (!ul.style.display || ul.style.display == 'none') {
+         ul.style.display = 'block';
+         sessionStorage[key] = 'open';
+      } else {
+         ul.style.display = 'none';
+         sessionStorage[key] = 'closed';
+      }
+   });
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+   var links = document.querySelectorAll('#index > li > a');
+   for (var i = 0; i < links.length; i++) {
+      bindHandler(links[i]);
+   }
+});
+</script>
+   </head>
+   <body>
+      <div id="masthead" class="sev-1"></div>
+      <div id="page">
+         <p id="srclink">
+            <a title="View full annotated source"
+               href="src.Resources.resources.source.html">
+               <img src="file.svg" alt="&#x2261;">
+            </a></p>
+         <h1>
+            <a href="index.html">
+               <img src="back.svg" alt="&#x2B05;">
+               src\Resources\resources.py
+            </a>
+         </h1>
+
+         <ul id="index">
+         
+         <li>
+            <a data-code="F401">
+               <span class="count sev-1">
+                  1
+               </span>
+               <strong>F401:</strong> 'src.Loader.parser' imported but unused
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <a href="src.Resources.resources.source.html#l6">
+                  <tt><i>6</i> <span class="kn">from</span> <span class="nn">src.Loader</span> <span class="kn">import</span> <span class="n">parser</span></tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         <li>
+            <a data-code="VNE001">
+               <span class="count sev-3">
+                  3
+               </span>
+               <strong>VNE001:</strong> single letter variable names like 'x' are not allowed
+               
+                  (and 2 similar)
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <p>Single letter variable names like 'x' are not allowed:</p>
+               
+               <a href="src.Resources.resources.source.html#l172">
+                  <tt><i>172</i>         <span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">500</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Single letter variable names like 'y' are not allowed:</p>
+               
+               <a href="src.Resources.resources.source.html#l173">
+                  <tt><i>173</i>         <span class="n">y</span> <span class="o">=</span> <span class="mi">50</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Single letter variable names like 'j' are not allowed:</p>
+               
+               <a href="src.Resources.resources.source.html#l176">
+                  <tt><i>176</i>             <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gridSize</span><span class="p">):</span></tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         <li>
+            <a data-code="I100">
+               <span class="count sev-3">
+                  2
+               </span>
+               <strong>I100:</strong> Import statements are in the wrong order. 'import os' should be before 'import pygame' and in a different group.
+               
+                  (and 1 similar)
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <p>Import statements are in the wrong order. 'import os' should be before 'import pygame' and in a different group.:</p>
+               
+               <a href="src.Resources.resources.source.html#l2">
+                  <tt><i>2</i> <span class="kn">import</span> <span class="nn">os</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Import statements are in the wrong order. 'from src.Drawer import button' should be before 'from src.Loader import loader':</p>
+               
+               <a href="src.Resources.resources.source.html#l4">
+                  <tt><i>4</i> <span class="kn">from</span> <span class="nn">src.Drawer</span> <span class="kn">import</span> <span class="n">button</span></tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         <li>
+            <a data-code="I201">
+               <span class="count sev-3">
+                  2
+               </span>
+               <strong>I201:</strong> Missing newline between import groups. 'import os' is identified as Stdlib and 'import pygame' is identified as Third Party.
+               
+                  (and 1 similar)
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <p>Missing newline between import groups. 'import os' is identified as Stdlib and 'import pygame' is identified as Third Party.:</p>
+               
+               <a href="src.Resources.resources.source.html#l2">
+                  <tt><i>2</i> <span class="kn">import</span> <span class="nn">os</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Missing newline between import groups. 'from src.Loader import loader' is identified as Third Party and 'import os' is identified as Stdlib.:</p>
+               
+               <a href="src.Resources.resources.source.html#l3">
+                  <tt><i>3</i> <span class="kn">from</span> <span class="nn">src.Loader</span> <span class="kn">import</span> <span class="n">loader</span></tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         <li>
+            <a data-code="N802">
+               <span class="count sev-3">
+                  1
+               </span>
+               <strong>N802:</strong> function name 'generateGrid' should be lowercase
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <a href="src.Resources.resources.source.html#l167">
+                  <tt><i>167</i>     <span class="k">def</span> <span class="nf">generateGrid</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         </ul>
+      </div>
+   </body>
+</html>

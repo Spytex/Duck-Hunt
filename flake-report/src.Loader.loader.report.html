@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>flake8 violations: src\Loader\loader.py</title>
+      <meta http-equiv="Content-Type" value="text/html; charset=UTF-8">
+      <link rel="stylesheet" href="styles.css">
+<script>
+function bindHandler(link) {
+   var code = link.getAttribute('data-code');
+   var key = location.pathname + '#' + code;
+
+   var ul = link.parentNode.querySelector('.details');
+   if (sessionStorage[key] != 'open') {
+      ul.style.display = 'none';
+   }
+   link.addEventListener('click', function (event) {
+      if (!ul.style.display || ul.style.display == 'none') {
+         ul.style.display = 'block';
+         sessionStorage[key] = 'open';
+      } else {
+         ul.style.display = 'none';
+         sessionStorage[key] = 'closed';
+      }
+   });
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+   var links = document.querySelectorAll('#index > li > a');
+   for (var i = 0; i < links.length; i++) {
+      bindHandler(links[i]);
+   }
+});
+</script>
+   </head>
+   <body>
+      <div id="masthead" class="sev-2"></div>
+      <div id="page">
+         <p id="srclink">
+            <a title="View full annotated source"
+               href="src.Loader.loader.source.html">
+               <img src="file.svg" alt="&#x2261;">
+            </a></p>
+         <h1>
+            <a href="index.html">
+               <img src="back.svg" alt="&#x2B05;">
+               src\Loader\loader.py
+            </a>
+         </h1>
+
+         <ul id="index">
+         
+         <li>
+            <a data-code="W292">
+               <span class="count sev-2">
+                  1
+               </span>
+               <strong>W292:</strong> no newline at end of file
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <a href="src.Loader.loader.source.html#l64">
+                  <tt><i>64</i>         <span class="k">return</span> <span class="n">sound</span></tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         <li>
+            <a data-code="W293">
+               <span class="count sev-2">
+                  1
+               </span>
+               <strong>W293:</strong> blank line contains whitespace
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <a href="src.Loader.loader.source.html#l46">
+                  <tt><i>46</i>         </tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         <li>
+            <a data-code="N802">
+               <span class="count sev-3">
+                  5
+               </span>
+               <strong>N802:</strong> function name 'readJSONFile' should be lowercase
+               
+                  (and 4 similar)
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <p>Function name 'readJSONFile' should be lowercase:</p>
+               
+               <a href="src.Loader.loader.source.html#l15">
+                  <tt><i>15</i>     <span class="k">def</span> <span class="nf">readJSONFile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">fileName</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Function name 'writeToJSONFile' should be lowercase:</p>
+               
+               <a href="src.Loader.loader.source.html#l24">
+                  <tt><i>24</i>     <span class="k">def</span> <span class="nf">writeToJSONFile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">fileName</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Function name 'updateJSONFile' should be lowercase:</p>
+               
+               <a href="src.Loader.loader.source.html#l32">
+                  <tt><i>32</i>     <span class="k">def</span> <span class="nf">updateJSONFile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">fileName</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">dataLocation</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Function name 'loadGeneralMusic' should be lowercase:</p>
+               
+               <a href="src.Loader.loader.source.html#l42">
+                  <tt><i>42</i>     <span class="k">def</span> <span class="nf">loadGeneralMusic</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Function name 'loadSound' should be lowercase:</p>
+               
+               <a href="src.Loader.loader.source.html#l55">
+                  <tt><i>55</i>     <span class="k">def</span> <span class="nf">loadSound</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fileName</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span></tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         <li>
+            <a data-code="N806">
+               <span class="count sev-3">
+                  5
+               </span>
+               <strong>N806:</strong> variable 'filePathNameWExt' in function should be lowercase
+               
+                  (and 1 similar)
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <p>Variable 'filePathNameWExt' in function should be lowercase:</p>
+               
+               <a href="src.Loader.loader.source.html#l19">
+                  <tt><i>19</i>         <span class="n">filePathNameWExt</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">fileName</span> <span class="o">+</span> <span class="s1">&#39;.json&#39;</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Variable 'filePathNameWExt' in function should be lowercase:</p>
+               
+               <a href="src.Loader.loader.source.html#l28">
+                  <tt><i>28</i>         <span class="n">filePathNameWExt</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">fileName</span> <span class="o">+</span> <span class="s1">&#39;.json&#39;</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Variable 'filePathNameWExt' in function should be lowercase:</p>
+               
+               <a href="src.Loader.loader.source.html#l36">
+                  <tt><i>36</i>         <span class="n">filePathNameWExt</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">fileName</span> <span class="o">+</span> <span class="s1">&#39;.json&#39;</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Variable 'oldData' in function should be lowercase:</p>
+               
+               <a href="src.Loader.loader.source.html#l37">
+                  <tt><i>37</i>         <span class="n">oldData</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">readJSONFile</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">fileName</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Variable 'filePathNameWExt' in function should be lowercase:</p>
+               
+               <a href="src.Loader.loader.source.html#l59">
+                  <tt><i>59</i>         <span class="n">filePathNameWExt</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;assets&#39;</span><span class="p">,</span> <span class="s1">&#39;sounds&#39;</span><span class="p">,</span> <span class="n">fileName</span> <span class="o">+</span> <span class="s1">&#39;.mp3&#39;</span><span class="p">)</span></tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         <li>
+            <a data-code="N803">
+               <span class="count sev-3">
+                  4
+               </span>
+               <strong>N803:</strong> argument name 'fileName' should be lowercase
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <a href="src.Loader.loader.source.html#l15">
+                  <tt><i>15</i>     <span class="k">def</span> <span class="nf">readJSONFile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">fileName</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span></tt>
+               </a>
+            </li><li>
+               
+               <a href="src.Loader.loader.source.html#l24">
+                  <tt><i>24</i>     <span class="k">def</span> <span class="nf">writeToJSONFile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">fileName</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span></tt>
+               </a>
+            </li><li>
+               
+               <a href="src.Loader.loader.source.html#l32">
+                  <tt><i>32</i>     <span class="k">def</span> <span class="nf">updateJSONFile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">fileName</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">dataLocation</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span></tt>
+               </a>
+            </li><li>
+               
+               <a href="src.Loader.loader.source.html#l55">
+                  <tt><i>55</i>     <span class="k">def</span> <span class="nf">loadSound</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fileName</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span></tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         <li>
+            <a data-code="I100">
+               <span class="count sev-3">
+                  1
+               </span>
+               <strong>I100:</strong> Import statements are in the wrong order. 'import json' should be before 'import pygame' and in a different group.
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <a href="src.Loader.loader.source.html#l2">
+                  <tt><i>2</i> <span class="kn">import</span> <span class="nn">json</span></tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         <li>
+            <a data-code="I201">
+               <span class="count sev-3">
+                  1
+               </span>
+               <strong>I201:</strong> Missing newline between import groups. 'import json' is identified as Stdlib and 'import pygame' is identified as Third Party.
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <a href="src.Loader.loader.source.html#l2">
+                  <tt><i>2</i> <span class="kn">import</span> <span class="nn">json</span></tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         </ul>
+      </div>
+   </body>
+</html>

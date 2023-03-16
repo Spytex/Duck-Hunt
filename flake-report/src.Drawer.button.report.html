@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>flake8 violations: src\Drawer\button.py</title>
+      <meta http-equiv="Content-Type" value="text/html; charset=UTF-8">
+      <link rel="stylesheet" href="styles.css">
+<script>
+function bindHandler(link) {
+   var code = link.getAttribute('data-code');
+   var key = location.pathname + '#' + code;
+
+   var ul = link.parentNode.querySelector('.details');
+   if (sessionStorage[key] != 'open') {
+      ul.style.display = 'none';
+   }
+   link.addEventListener('click', function (event) {
+      if (!ul.style.display || ul.style.display == 'none') {
+         ul.style.display = 'block';
+         sessionStorage[key] = 'open';
+      } else {
+         ul.style.display = 'none';
+         sessionStorage[key] = 'closed';
+      }
+   });
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+   var links = document.querySelectorAll('#index > li > a');
+   for (var i = 0; i < links.length; i++) {
+      bindHandler(links[i]);
+   }
+});
+</script>
+   </head>
+   <body>
+      <div id="masthead" class="sev-2"></div>
+      <div id="page">
+         <p id="srclink">
+            <a title="View full annotated source"
+               href="src.Drawer.button.source.html">
+               <img src="file.svg" alt="&#x2261;">
+            </a></p>
+         <h1>
+            <a href="index.html">
+               <img src="back.svg" alt="&#x2B05;">
+               src\Drawer\button.py
+            </a>
+         </h1>
+
+         <ul id="index">
+         
+         <li>
+            <a data-code="W291">
+               <span class="count sev-2">
+                  1
+               </span>
+               <strong>W291:</strong> trailing whitespace
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <a href="src.Drawer.button.source.html#l16">
+                  <tt><i>16</i> <span class="w">        </span><span class="sd">&quot;&quot;&quot; </span></tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         <li>
+            <a data-code="VNE001">
+               <span class="count sev-3">
+                  2
+               </span>
+               <strong>VNE001:</strong> single letter variable names like 'x' are not allowed
+               
+                  (and 1 similar)
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <p>Single letter variable names like 'x' are not allowed:</p>
+               
+               <a href="src.Drawer.button.source.html#l6">
+                  <tt><i>6</i>     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">scale</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Single letter variable names like 'y' are not allowed:</p>
+               
+               <a href="src.Drawer.button.source.html#l6">
+                  <tt><i>6</i>     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">scale</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span></tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         <li>
+            <a data-code="I201">
+               <span class="count sev-3">
+                  1
+               </span>
+               <strong>I201:</strong> Missing newline between import groups. 'from src.Loader import loader' is identified as Third Party and 'import pygame' is identified as Third Party.
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <a href="src.Drawer.button.source.html#l2">
+                  <tt><i>2</i> <span class="kn">from</span> <span class="nn">src.Loader</span> <span class="kn">import</span> <span class="n">loader</span></tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         <li>
+            <a data-code="N806">
+               <span class="count sev-3">
+                  1
+               </span>
+               <strong>N806:</strong> variable 'yesSound' in function should be lowercase
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <a href="src.Drawer.button.source.html#l29">
+                  <tt><i>29</i>                     <span class="n">yesSound</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">loader</span><span class="o">.</span><span class="n">loadSound</span><span class="p">(</span><span class="s1">&#39;yes&#39;</span><span class="p">)</span></tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         </ul>
+      </div>
+   </body>
+</html>
